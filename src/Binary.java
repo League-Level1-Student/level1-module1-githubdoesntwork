@@ -1,41 +1,21 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class Binary {
-public static String main(String[] args) {
-	JFrame frame = new JFrame();
-	JPanel panel = new JPanel();
-	JLabel label = new JLabel();
-	JButton button = new JButton();
-	JTextField answer = new JTextField(20);
-	frame.add(panel);
-	panel.add(button);
-	button.setText("convert");
-	panel.add(answer);
-	frame.pack();
-	frame.setVisible(true);
-	String convert(String input) {
-        if(input.length() != 8){
-             JOptionPane.showMessageDialog(null, "Enter 8 bits, silly!!!");
-             return "-";
-        }
-        String binary = "[0-1]+";    //must contain numbers in the given range
-        if (!input.matches(binary)) {
-             JOptionPane.showMessageDialog(null, "Binary can only contain 1s or 0s, silly!!!");
-             return "-";
-        }
-        try {
-             int asciiValue = Integer.parseInt(input, 2);
-             char theLetter = (char) asciiValue;
-             return "" + theLetter;
-        } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Enter a binary, silly!!!");
-             return "-";
-        }
-   }
-}
+	public static void main(String[] args) {
+Scanner scan = new Scanner(System.in);
+int a;
+String b;
+System.out.println("Type a 8 digit binary number :)");
+b = scan.nextLine();
+a=0;
+a=a+(b.charAt(0)-'0')*128;
+a=a+(b.charAt(1)-'0')*64;
+a=a+(b.charAt(2)-'0')*32;
+a=a+(b.charAt(3)-'0')*16;
+a=a+(b.charAt(4)-'0')*8;
+a=a+(b.charAt(5)-'0')*4;
+a=a+(b.charAt(6)-'0')*2;
+a=a+(b.charAt(7)-'0');
+System.out.println(a);
+	}
 }
